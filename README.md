@@ -11,7 +11,7 @@ Version Beta 0.1
   Functions can be used in the bill.js: <br>
      <pre>
         totalByPage(start, end, interval)
-            <pre>example: totalByPage(3,15,800)</pre>
+            <pre>example: totalByPage(3,15,800);</pre>
         totalByPageAjax(start, end)
             <pre>example: totalByPageAjax(1,27);</pre>
         totalByDateAjax(start,end) 
