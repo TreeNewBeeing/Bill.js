@@ -5,7 +5,9 @@ Calculate the bill of uber since uber cannot provide the total cost of a period 
 Version Beta 0.1
 ----------------
   Development goes on safari 10.1.1, but may work on most popular browsers.<br>
+  Go to https://riders.uber.com and sign in your account.<br>
   Open the console of browser and copy-paste code into console. <br>
+  Then, type in the function you want to use with correct parameters.<br>
   Functions can be used in the bill.js: <br>
      <pre>
         totalByPage(start, end, interval)
