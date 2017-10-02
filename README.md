@@ -13,7 +13,7 @@ Version Beta 0.1
         totalByPage(start, end, interval)
             <pre>example: totalByPage(3,15,800)</pre>
         totalByPageAjax(start, end)
-            <pre>example:totalByPageAjax(1,27);</pre>
+            <pre>example: totalByPageAjax(1,27);</pre>
         totalByDateAjax(start,end) 
             <pre>example: totalByDateAjax("17,10,22","16,08,12");</pre>
     </pre>
