@@ -9,7 +9,6 @@
  *
  */
 
-
 /*
  * function name: totalByPage
  * description: 
@@ -42,7 +41,7 @@ function totalByPage(start, end, interval){
 					var priceString = a.get(i).textContent.replace(/\s/g, '');
 					if(priceString[0] == '$'){
 						var price = parseFloat(priceString.substring(1));
-						console.log(price);
+						// console.log(price);
 						total+=price;
 					}
 				}
@@ -50,7 +49,7 @@ function totalByPage(start, end, interval){
 			
 			if(index==end){
 				clearInterval(timer);
-				console.log("total price: "+total);
+				console.log("total: "+total);
 			}else{
 				$(".pagination__next").trigger("click");
 			}
@@ -73,7 +72,7 @@ function totalByPage(start, end, interval){
 }
 
 // example
-totalByPage(3,15,800)
+// totalByPage(3,15,800)
 
 /*
  * function name: totalByPageAjax
@@ -87,6 +86,10 @@ totalByPage(3,15,800)
  */
 
 function totalByPageAjax(start,end){
+	if(end < start ){
+			console.log("Please change end date");
+			return;
+	}
 	var a;
 	total = 0;
 	for(var n=start;n<=end;n++){
@@ -98,6 +101,7 @@ function totalByPageAjax(start,end){
 				var price = parseFloat(a[i]);
 				total += price;
 			}
+			console.log("total: "+total);
 			
 
 		});
@@ -105,7 +109,7 @@ function totalByPageAjax(start,end){
 }
 
 // example
-totalByPageAjax(1,27);
+// totalByPageAjax(1,27);
 
 /*
  * function name: translateDate
@@ -139,7 +143,7 @@ function PartTotalByDateAjax(n,start,end){
 		a = data.match(/trip-expand__origin.+?\$[0-9]+.[0-9]{2}/g)
 		var exceed = false;
 		for(var i=0;i<a.length;i++){
-			var date = translateDate(a[i].match(/[0-1][0-9]\/[0-3][0-9]\/[0-9][0-9]/)[0]);console.log(date);
+			var date = translateDate(a[i].match(/[0-1][0-9]\/[0-3][0-9]\/[0-9][0-9]/)[0]);//console.log(date);
 			if(date <= start){
 				if( date >= end){
 					var price = parseFloat(a[i].match(/[0-9]+\.[0-9]{2}/)[0]);//console.log(price);
@@ -151,11 +155,11 @@ function PartTotalByDateAjax(n,start,end){
 			}
 
 		}
+		console.log("total: "+total);
 
 		if(!exceed){
 			PartTotalByDateAjax(n+1,start,end);
 		}else{
-			console.log("finished");
 			return ;
 		}
 
@@ -163,13 +167,15 @@ function PartTotalByDateAjax(n,start,end){
 }
 
 function totalByDateAjax(start,end){
+	if(end > start ){
+			console.log("Please change end date");
+			return;
+	}
 	total = 0;
 	PartTotalByDateAjax(1,start,end);
 }
 
 // example
-totalByDateAjax("17,10,22","16,08,12");
-
-
+// totalByDateAjax("17,10,22","16,08,12");
 
 
